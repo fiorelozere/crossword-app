@@ -1,0 +1,7 @@
+{
+  "name": "crossword-app",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
