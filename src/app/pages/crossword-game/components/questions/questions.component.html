@@ -1,0 +1,27 @@
+<ion-segment (ionChange)="segmentChanged($event)" [value]="selected">
+  <ion-segment-button value="horizontal">
+    <ion-label>Horizontale</ion-label>
+  </ion-segment-button>
+  <ion-segment-button value="vertical">
+    <ion-label>Vertikale</ion-label>
+  </ion-segment-button>
+</ion-segment>
+<div>
+  <ng-container *ngIf="selected === 'horizontal'">
+    <ion-list style="height: 50vh; overflow: scroll; padding-bottom: 20px">
+      <ion-item (click)="questionClicked.emit(question)" *ngFor="let question of questions.horizontal">
+        <ion-badge class="ion-margin-end" color="primary">{{question.questionNumber}}</ion-badge>
+        <ion-label>{{question.question}}</ion-label>
+      </ion-item>
+    </ion-list>
+  </ng-container>
+  <ng-container *ngIf="selected === 'vertical'">
+    <ion-list  style="height: 50vh; overflow: scroll; padding-bottom: 20px">
+      <ion-item (click)="questionClicked.emit(question)" *ngFor="let question of questions.vertical">
+        <ion-badge class="ion-margin-end"  color="primary">{{question.questionNumber}}</ion-badge>
+        <ion-label>{{question.question}}</ion-label>
+      </ion-item>
+    </ion-list>
+  </ng-container>
+</div>
+

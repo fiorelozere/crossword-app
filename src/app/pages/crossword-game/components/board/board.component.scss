@@ -1,0 +1,73 @@
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  img {
+    height: 20px;
+  }
+}
+
+.crossword {
+  //transform: scale(0.3);
+  display: flex;
+  overflow: scroll;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 40vh;
+}
+
+
+
+.box {
+  border: 1px solid black;
+  height: 100%;
+  width: 100%;
+  position: relative;
+
+  .number {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    font-size: 0.8rem;
+  }
+
+  .input {
+    border: none;
+    padding: 15px 10px 10px;
+    width: 100%;
+    height: 100%;
+    caret-color: transparent;
+  }
+
+  .input:focus {
+    background: #858585;
+  }
+}
+
+.block-padding {
+  padding: 1px !important;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.block {
+  height: 100%;
+  width: 100%;
+  background: black !important;
+}
+
+.valid {
+  background: rgba(0, 128, 0, 0.32) !important;
+}
+
+.invalid {
+  background: rgba(250, 0, 0, 0.46) !important;
+}
+
+.highlight {
+  background: #858585;
+}

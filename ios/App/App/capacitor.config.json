@@ -1,0 +1,6 @@
+{
+	"appId": "crossword.app",
+	"appName": "Fjalekryq",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}

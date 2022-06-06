@@ -1,8 +1,8 @@
 import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'io.ionic.starter',
-  appName: 'crossword-app',
+  appId: 'crossword.app',
+  appName: 'Fjalekryq',
   webDir: 'www',
   bundledWebRuntime: false
 };

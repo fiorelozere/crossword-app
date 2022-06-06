@@ -1,0 +1,14 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Play</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" scroll-y="false">
+  <app-board
+    [questionClicked]="store.activeQuestion$ | async"
+    [boardLevel]="level"></app-board>
+  <app-questions
+    (questionClicked)="store.setActiveQuestion($event)"
+    [questions]="questions"></app-questions>
+</ion-content>

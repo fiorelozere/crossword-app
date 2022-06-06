@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "crossword-app-a4a82": {
+      "hosting": {
+        "app": [
+          "crossword-app-a4a82"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "crossword-app-a4a82"
+  }
+}

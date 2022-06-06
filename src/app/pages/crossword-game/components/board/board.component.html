@@ -1,0 +1,31 @@
+<div class="toolbar">
+  <div>
+    <ion-button (click)="checkResponses()" size="small">Kontrollo pergjigjet</ion-button>
+  </div>
+  <div>
+    <ion-button color="transparent" fill="clear" (click)="zoomOut()"><img src="assets/zoom-out.svg" alt=""></ion-button>
+    <ion-button color="transparent" fill="clear" (click)="zoomIn()"><img src="assets/zoom.svg" alt=""></ion-button>
+  </div>
+
+</div>
+
+<div class="crossword" #crossword>
+  <div
+    [style.height]="boxSize + 'px'"
+    [style.width]="level[0].length * boxSize + 'px'" class="row" *ngFor="let row of level; let i = index">
+    <div
+      class="box block-padding" *ngFor="let box of row; let j=index">
+      <span class="number" *ngIf="box.type === 'question'">{{box?.question?.questionNumber}}</span>
+      <div *ngIf="box.type === 'block'" class="block"></div>
+      <input
+        [id]="box.id"
+        #boxInput
+        (focus)="onFocus($event, i , j)"
+        (blur)="onBlur($event)"
+        [class.highlight]="highlights[i][j]"
+        [class.valid]="showValidations && validation[i][j] === 1"
+        [class.invalid]="showValidations && validation[i][j] === 0"
+        pattern="[A-Za-z]{1}" *ngIf="box.type !== 'block'" class="input" [(ngModel)]="responses[i][j]" (ngModelChange)="onChange($event,i , j)">
+    </div>
+  </div>
+</div>
