@@ -1,0 +1,12 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Zgjidh Nivelin</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item *ngFor="let level of levels$ | async" (click)="nav.navigateForward('/game')">
+    <ion-badge class="ion-margin-end">{{level.number}}</ion-badge>
+    <ion-label>{{level.name}}</ion-label>
+  </ion-item>
+</ion-content>

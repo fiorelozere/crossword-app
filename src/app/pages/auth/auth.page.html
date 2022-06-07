@@ -1,9 +1,15 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>auth</ion-title>
+    <ion-title>Miresevini</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <form [formGroup]="credentialForm">
+    <input type="text" formControlName="email">
+    <input type="text" formControlName="password">
+  </form>
+  {{credentialForm.value | json}}
+  <button (click)="signIn()">Sign In</button>
+  <button (click)="signUp()">Sign Up</button>
 </ion-content>

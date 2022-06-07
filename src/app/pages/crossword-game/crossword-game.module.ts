@@ -4,23 +4,28 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { CrosswordGamePageRoutingModule } from './crossword-game-routing.module';
-
 import { CrosswordGamePage } from './crossword-game.page';
-import { FooterModule } from '../../layout/footer/footer.module';
 import { BoardComponent } from './components/board/board.component';
 import { QuestionsComponent } from './components/questions/questions.component';
 import { GameStore } from './store/game.store';
+import { RouterModule, Routes } from '@angular/router';
+
+const routes: Routes = [
+  {
+    path: '',
+    component: CrosswordGamePage
+  }
+];
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    CrosswordGamePageRoutingModule,
-    FooterModule
+    RouterModule.forChild(routes)
   ],
-  declarations: [CrosswordGamePage, BoardComponent, QuestionsComponent],
-  providers: [GameStore]
+  declarations: [ CrosswordGamePage, BoardComponent, QuestionsComponent ],
+  providers: [ GameStore ]
 })
-export class CrosswordGamePageModule {}
+export class CrosswordGamePageModule {
+}

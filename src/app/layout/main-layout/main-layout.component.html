@@ -1,0 +1,20 @@
+
+  <ion-router-outlet></ion-router-outlet>
+<ion-tabs>
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button tab="home">
+      <ion-icon name="home"></ion-icon>
+      <ion-label>Home</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="levels">
+      <ion-icon name="play"></ion-icon>
+      <ion-label>Luaj</ion-label>
+    </ion-tab-button>
+    <ion-tab-button (click)="signOut()">
+      <ion-icon name="log-out-outline"></ion-icon>
+      <ion-label>Dilni</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs>
+
