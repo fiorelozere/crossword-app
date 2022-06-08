@@ -8,18 +8,18 @@
 </ion-segment>
 <div>
   <ng-container *ngIf="selected === 'horizontal'">
-    <ion-list style="height: 50vh; overflow: scroll; padding-bottom: 20px">
+    <ion-list style="height: 50vh; overflow: scroll; padding-bottom:200px; padding-top: 30px">
       <ion-item (click)="questionClicked.emit(question)" *ngFor="let question of questions.horizontal">
         <ion-badge class="ion-margin-end" color="primary">{{question.questionNumber}}</ion-badge>
-        <ion-label>{{question.question}}</ion-label>
+        <ion-text>{{question.question}}</ion-text>
       </ion-item>
     </ion-list>
   </ng-container>
   <ng-container *ngIf="selected === 'vertical'">
-    <ion-list  style="height: 50vh; overflow: scroll; padding-bottom: 20px">
+    <ion-list  style="height: 50vh; overflow: scroll; padding-bottom:200px; padding-top: 30px">
       <ion-item (click)="questionClicked.emit(question)" *ngFor="let question of questions.vertical">
         <ion-badge class="ion-margin-end"  color="primary">{{question.questionNumber}}</ion-badge>
-        <ion-label>{{question.question}}</ion-label>
+        <ion-text>{{question.question}}</ion-text>
       </ion-item>
     </ion-list>
   </ng-container>

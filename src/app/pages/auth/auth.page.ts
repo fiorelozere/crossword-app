@@ -1,19 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
 import { AlertController, LoadingController, NavController } from '@ionic/angular';
 import { AuthService } from './services/auth.service';
 
 @Component({
   selector: 'app-auth',
   templateUrl: './auth.page.html',
-  styleUrls: ['./auth.page.scss'],
+  styleUrls: [ './auth.page.scss' ],
 })
 export class AuthPage implements OnInit {
 
   credentialForm = this.fb.group({
-    email: [null, [Validators.required, Validators.email]],
-    password: [null, [Validators.required, Validators.minLength(6)]]
+    email: [ null, [ Validators.required, Validators.email ] ],
+    password: [ null, [ Validators.required, Validators.minLength(6) ] ]
   });
 
   constructor(
@@ -22,7 +21,8 @@ export class AuthPage implements OnInit {
     private alertController: AlertController,
     private loadingController: LoadingController,
     private authService: AuthService
-  ) { }
+  ) {
+  }
 
 
   get email() {
@@ -42,14 +42,14 @@ export class AuthPage implements OnInit {
 
     this.authService.signUp(this.credentialForm.value).then(user => {
       loading.dismiss();
-      this.nav.navigateForward('/levels', {replaceUrl: true});
+      this.nav.navigateForward('/levels', { replaceUrl: true });
     }, async error => {
       console.log(error)
       await loading.dismiss();
       const alert = await this.alertController.create({
-        header: 'Sign Up Failed',
+        header: 'Dicka shkoi gabim',
         message: error.message,
-        buttons: ['Ok']
+        buttons: [ 'Ok' ]
       });
       await alert.present();
     });
@@ -61,13 +61,13 @@ export class AuthPage implements OnInit {
 
     this.authService.signIn(this.credentialForm.value).then(user => {
       loading.dismiss();
-      this.nav.navigateForward('/levels', {replaceUrl: true});
+      this.nav.navigateForward('/levels', { replaceUrl: true });
     }, async error => {
       await loading.dismiss();
       const alert = await this.alertController.create({
-        header: 'Sign In Failed',
+        header: 'Dicka shkoi gabim',
         message: error.message,
-        buttons: ['Ok']
+        buttons: [ 'Ok' ]
       });
       await alert.present();
     });

@@ -1,9 +1,25 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>home</ion-title>
+    <ion-title>Miresevini</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <ion-row>
+    <ion-col style="display: flex" class="ion-justify-content-center ion-margin-top ion-padding-top">
+      <ion-avatar style="height: 100px; width: 100px">
+        <img height="90" width="90" src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+      </ion-avatar>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col style="display: flex" class="ion-justify-content-center ion-margin-top ion-padding-top">
+      <ion-text style="font-size: 2rem">{{authService.currentUser?.email}}</ion-text>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col style="display: flex" class="ion-justify-content-center ion-margin-top ion-padding-top">
+      <ion-button (click)="nav.navigateForward('/levels')">Luaj</ion-button>
+    </ion-col>
+  </ion-row>
 </ion-content>

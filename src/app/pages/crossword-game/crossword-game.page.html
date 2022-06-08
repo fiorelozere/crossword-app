@@ -1,14 +1,23 @@
+<ng-container *ngIf="level$ | async as level; else loading">
 <ion-header>
   <ion-toolbar>
-    <ion-title>Play</ion-title>
+    <ion-title>{{level.name}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding" scroll-y="false">
+
   <app-board
+    (boardCompleted)="onComplete(level.uuid)"
     [questionClicked]="store.activeQuestion$ | async"
-    [boardLevel]="level"></app-board>
+    [boardLevel]="level.table"></app-board>
   <app-questions
     (questionClicked)="store.setActiveQuestion($event)"
-    [questions]="questions"></app-questions>
+    [questions]="level.questions"></app-questions>
+
 </ion-content>
+</ng-container>
+
+<ng-template #loading>
+  Ju lutem prisni...
+</ng-template>

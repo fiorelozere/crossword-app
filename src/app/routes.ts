@@ -1,7 +1,7 @@
 export const appRoutes = {
   mainLayoutRoutes: [
     {
-      path: 'game',
+      path: 'game/:id',
       loadChildren: () => import('./pages/crossword-game/crossword-game.module').then(m => m.CrosswordGamePageModule)
     },
     {

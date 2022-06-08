@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
+import {v4} from 'uuid';
+import { level } from '../../crossword-game/level';
+import { questions } from '../../crossword-game/questions';
 
 export interface User {
   uid: string;
@@ -37,4 +40,5 @@ export class AuthService {
   async signOut() {
     return this.afAuth.signOut();
   }
+
 }

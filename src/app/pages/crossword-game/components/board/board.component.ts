@@ -1,4 +1,14 @@
-import { AfterViewInit, Component, ElementRef, Input, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef, EventEmitter,
+  Input,
+  OnInit,
+  Output,
+  QueryList,
+  ViewChild,
+  ViewChildren
+} from '@angular/core';
 import { Gesture } from '@ionic/angular';
 import { GameStore } from '../../store/game.store';
 
@@ -9,12 +19,16 @@ import { GameStore } from '../../store/game.store';
 })
 export class BoardComponent implements OnInit, AfterViewInit {
 
+  @Output() boardCompleted = new EventEmitter<any>();
+
   @ViewChild('crossword') crossword: ElementRef;
   @ViewChildren('boxInput') inputs: QueryList<ElementRef>
-  responses = [[]];
-  validation = [[]];
-  highlights = [[]];
-  level: any[][] = [[]];
+  responses = [ [] ];
+  validation = [ [] ];
+  highlights = [ [] ];
+  level: any[][] = [ [] ];
+
+
 
   @Input() set questionClicked(question: any | null) {
     if (question) {
@@ -31,7 +45,6 @@ export class BoardComponent implements OnInit, AfterViewInit {
   };
 
 
-
   zoom = 1;
   boxSize = 40;
 
@@ -45,6 +58,12 @@ export class BoardComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
+    //Test level responses
+    // for (let i = 0; i < this.level.length; i++) {
+    //   for (let j = 0; j < this.level[0].length; j++) {
+    //    this.responses[i][j] = this.level[i][j].character;
+    //   }
+    // }
   }
 
 
@@ -118,7 +137,7 @@ export class BoardComponent implements OnInit, AfterViewInit {
     // if(this.level[row][col].type === 'question') {
     //   this.store.setActiveQuestion(this.level[row][col]);
     // }
-    if(!!this.store.activeQuestion) {
+    if (!!this.store.activeQuestion) {
       return;
     }
     this.highlights = this.generateEmptyArray(this.level.length, this.level[0].length, false);
@@ -160,6 +179,9 @@ export class BoardComponent implements OnInit, AfterViewInit {
     console.log(isValid);
     console.log(this.validation);
     setTimeout(() => this.showValidations = false, 2000);
+    if (isValid === true) {
+      this.boardCompleted.emit();
+    }
     return isValid;
   }
 }
